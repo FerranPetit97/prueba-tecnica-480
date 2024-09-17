@@ -36,4 +36,4 @@ node ./dist/index.js
 
 ### NOTAS
 
-Normalmente no subiriría el directorio 'dist' pero para facilitar el ejecución de este lo subo al repositorio.
+Normalmente no subiriría el directorio 'dist' pero para facilitar la ejecución de este lo subo al repositorio.
