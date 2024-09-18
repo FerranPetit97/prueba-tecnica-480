@@ -1,22 +1,24 @@
-import { Disk, Reader } from './disk.interface'
+import { BaseDisk } from './BaseDisk'
+import {
+  IDataBaseDisk,
+  DiskInfo,
+  Reader,
+} from '../interfaces/dataBaseDisk.interface'
 
-export class Cd implements Disk {
-  private name: string
+export class DataBaseDisk extends BaseDisk implements IDataBaseDisk {
+  private nick: string
   private capacity: number
   private content: string
   private allContent: string[]
-  private type: string
+  private type: Reader
 
   constructor(name: string, capacity: number, content: string, type: Reader) {
-    this.name = name
+    super(name)
     this.capacity = capacity
     this.content = content
     this.type = type
     this.allContent = []
-  }
-
-  spinDisk(): string {
-    return 'CD está girando'
+    this.nick = this.getName()
   }
 
   saveData(): string {
@@ -26,19 +28,7 @@ export class Cd implements Disk {
 
     this.addContent(this.content)
 
-    return 'CD inicializado'
-  }
-
-  getName(): string {
-    return this.name
-  }
-
-  setName(name: string): void {
-    if (name.length <= 0) {
-      console.error('El nombre no puede estar vacio')
-      return
-    }
-    this.name = name
+    return `${this.nick} inicializado`
   }
 
   getCapacity(): number {
@@ -54,7 +44,16 @@ export class Cd implements Disk {
     return 'La información ha sido añadida'
   }
 
-  getType(): string {
+  getType(): Reader {
     return this.type
+  }
+
+  getInfo(): DiskInfo {
+    return {
+      name: this.getName(),
+      capacity: this.getCapacity(),
+      allContent: this.getContent(),
+      type: this.getType(),
+    }
   }
 }

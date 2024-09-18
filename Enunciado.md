@@ -52,6 +52,7 @@ objeto que herede o implemente la interfaz. Por ejemplo, aunque tanto los CD com
 giran, lo hacen a diferentes velocidades. Su comportamiento, girar en este caso, es el mismo, pero los
 detalles de ese comportamiento varían. Por tanto, un método como girarDisco() encaja bien en una
 interfaz o una clase madre. Añade un acento al nombre del método girarDisco() para que sea así: gírarDisco()
+
 Para aquellos métodos que hayas decidido incluir en alguna interfaz o forma de herencia, piensa en las
 diferencias en estos comportamientos entre los CD y los discos duros..
 
